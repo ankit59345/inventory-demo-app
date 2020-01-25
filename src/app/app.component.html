@@ -1,0 +1,58 @@
+<style>
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  </style>
+
+
+
+  <div class="row">
+    <div class="column">
+      <app-name #appName></app-name>
+    </div>
+    <div class="column">
+      <app-price #appPrice></app-price>
+    </div>
+  </div>
+  <br>
+
+
+  <div style="margin-left: 40%;">
+      <button type="button" class="btn btn-primary btn-lg" (click)="[appName.out(), appPrice.out(), onGenerateInvoice()]">Generate Invoice</button>
+  </div>
+
+<div *ngIf='a'>
+  <div class="container" *ngIf='a'>
+      <hr>
+      <h2>Product Information</h2><br><br>
+      <div class="row">
+          <div class="column">
+              <i><b>Product 1 : </b>{{ this.serv.prodName1 }}</i><br><br>
+              <i><b>Product 2 : </b>{{ this.serv.prodName2 }}</i><br><br>
+          </div>
+          <div class="column">
+              <i><b>Total Price : </b>{{ this.totalPrice }}</i><br><br>
+          </div>
+      </div>
+  </div>
+  <div style="margin-left: 40%;">
+      <button type="button" class="btn btn-danger btn-lg" (click)="onFinalBill()">Generate Final Bill</button>
+  </div>
+  <div class="container" *ngIf="b">
+      <hr>
+      <h2>Invoice</h2><br><br>
+      <div class="container">
+          <i><b>Total Amount: </b>{{ this.totalPrice }}</i><br><br>
+          <i><b>Tax: </b>18%</i><br><br>
+          <i><b>Final Bill: </b>{{ this.finalPrice }}</i><br><br>
+      </div>
+  </div>
+</div>
+  
